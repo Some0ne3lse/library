@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div>
+      <table class="library-table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Pages</th>
+            <th scope="col">Read?</th>
+          </tr>
+        </thead>
+        <tbody id="allBooks"></tbody>
+      </table>
+    </div>
+    <div>
+      <button type="button" id="openForm">New Book</button>
+    </div>
+    <dialog id="modal">
+      <form id="bookForm">
+        <p>
+          <label for="title">Enter book title</label>
+          <input type="text" name="title" id="title" required />
+        </p>
+        <p>
+          <label for="author">Enter author</label>
+          <input type="text" name="author" id="author" required />
+        </p>
+        <p>
+          <label for="pages">Amount of pages</label>
+          <input type="number" name="pages" id="pages" required />
+        </p>
+        <p>
+          <label for="true">Read</label>
+          <input
+            type="radio"
+            name="readStatus"
+            id="true"
+            value="true"
+            required
+          />
+          <br />
+          <label for="false">Not read</label>
+          <input
+            type="radio"
+            name="readStatus"
+            id="false"
+            value="false"
+            required
+          />
+        </p>
+        <button type="submit">Add Book</button>
+      </form>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
