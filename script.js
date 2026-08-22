@@ -209,4 +209,7 @@ form.addEventListener('submit', (e) => {
 
 const closeFormButton = document.querySelector('#closeForm')
 
-closeFormButton.onclick = () => document.querySelector('#modal').close()
+closeFormButton.onclick = () => {
+  form.reset()
+  document.querySelector('#modal').close()
+}

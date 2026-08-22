@@ -3,31 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Library</title>
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div>
-      <table class="library-table">
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Author</th>
-            <th scope="col">Pages</th>
-            <th scope="col">Read?</th>
-          </tr>
-        </thead>
-        <tbody id="allBooks"></tbody>
-      </table>
-    </div>
-    <div>
-      <button type="button" id="openForm">New Book</button>
+    <div class="table-and-button">
+      <div class="table-container">
+        <table class="library-table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Pages</th>
+              <th scope="col">Read?</th>
+            </tr>
+          </thead>
+          <tbody id="allBooks"></tbody>
+        </table>
+      </div>
+      <div class="open-form-button-container">
+        <button type="button" class="open-form-button" id="openForm">
+          New Book
+        </button>
+      </div>
     </div>
     <dialog id="modal">
       <form id="bookForm" novalidate>
         <div>
           <label for="title">Enter book title</label>
-          <p>
+          <p class="input-and-error">
             <input
               class="normal-input"
               type="text"
@@ -40,7 +45,7 @@
         </div>
         <div>
           <label for="author">Enter author</label>
-          <p>
+          <p class="input-and-error">
             <input
               class="normal-input"
               type="text"
@@ -53,7 +58,7 @@
         </div>
         <div>
           <label for="pages">Amount of pages</label>
-          <p>
+          <p class="input-and-error">
             <input
               class="normal-input"
               type="number"
@@ -87,8 +92,12 @@
           </p>
           <span class="error" id="readRadio"></span>
         </fieldset>
-        <button type="submit">Add Book</button>
-        <button type="button" id="closeForm">Close</button>
+        <div>
+          <button class="add-button" type="submit">Add Book</button>
+          <button class="delete-button" type="button" id="closeForm">
+            Close
+          </button>
+        </div>
       </form>
     </dialog>
     <script src="script.js"></script>

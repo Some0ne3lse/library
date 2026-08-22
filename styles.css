@@ -1,47 +1,116 @@
-.library-table, th, td {
-  border: 1px solid black;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(241, 235, 150);
+  background-image: url("images/library.jpg");
+  background-size: cover;
+  background-position: center;
+  font-weight: 900;
 }
 
-.hidden {
-  display: none;
+.table-and-button {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.library-table, th, td {
+  border: 1px solid black;
+  height: 5rem;
+}
+
+table {
+  background-color: rgba(59, 158, 42, 0.966);
+}
+
+td {
+  text-align: center;
+}
+
+button {
+  border: none;
+  background-color: rgba(240, 255, 255, 0.854);
+  font-weight: 900;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.change-read-button {
+ color: rgba(35, 92, 65, 0.75);
+}
+
+.delete-button {
+  color: rgb(238, 86, 86);
+}
+
+.open-form-button {
+  color: rgba(41, 62, 73, 0.75);
+  width: 15%;
+  height: 5em;
+  position: fixed;
+}
+
+.open-form-button-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+dialog {
+  width: 60%;
+  border-radius: 5px;
+  background-color: rgba(239, 237, 237, 0.971);
 }
 
 .normal-input {
-  appearance: none;
-
-  width: 100%;
-  border: 1px solid #333333;
-  margin: 0;
-
-  font-family: inherit;
-  font-size: 90%;
-
-  box-sizing: border-box;
+ width: 60%;
+ padding: 10px;
+ border-radius: 5px;
 }
 
 /* invalid fields */
-input:invalid {
-  border-color: #990000;
-  background-color: #ffdddd;
+input:user-invalid {
+  border-style: solid;
+  border-color: rgb(239, 153, 153);
 }
 
-input:focus:invalid {
+input:focus:user-invalid {
   outline: none;
 }
 
+.input-and-error {
+  display: flex;
+  flex-direction: column;
+}
 /* error message styles */
 .error {
-  width: 100%;
+  width: 40%;
   padding: 0;
-
-  font-size: 80%;
+  font-size: 90%;
   color: white;
-  background-color: #990000;
+  background-color: rgb(249, 120, 120);
   border-radius: 0 0 5px 5px;
-
-  box-sizing: border-box;
 }
 
 .error.active {
-  padding: 0.3em;
+  padding: 0.1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
