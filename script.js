@@ -78,13 +78,122 @@ function renderTable() {
 
 renderTable()
 
+function showOrHideError(
+  selectedInput,
+  selectedError,
+  selectedErrorFunction,
+  textContent,
+) {
+  if (selectedInput.validity.valid) {
+    selectedError.textContent = ''
+    selectedError.className = 'error'
+  } else {
+    selectedErrorFunction(selectedInput, selectedError, textContent)
+  }
+}
+
+function showMissingError(selectedInput, selectedError, errorMessage) {
+  if (selectedInput.validity.valueMissing) {
+    selectedError.textContent = errorMessage
+  }
+  selectedError.className = 'error active'
+}
 const openFormButton = document.querySelector('#openForm')
 openFormButton.onclick = () => document.querySelector('#modal').showModal()
 
 const form = document.querySelector('#bookForm')
 
+const formTitle = document.querySelector('#title')
+const formTitleError = document.querySelector('#title + span.error')
+
+const formAuthor = document.querySelector('#author')
+const formAuthorError = document.querySelector('#author + span.error')
+
+const formPages = document.querySelector('#pages')
+const formPagesError = document.querySelector('#pages + span.error')
+
+const readStatusRadio = document.querySelectorAll('input[name="readStatus"]')
+const readStatusError = document.querySelector('#readRadio')
+
+formTitle.addEventListener('input', (event) => {
+  showOrHideError(
+    formTitle,
+    formTitleError,
+    showMissingError,
+    'Please enter a title',
+  )
+})
+
+formAuthor.addEventListener('input', (event) => {
+  showOrHideError(
+    formAuthor,
+    formAuthorError,
+    showMissingError,
+    'Please enter an author',
+  )
+})
+
+formPages.addEventListener('input', (event) => {
+  showOrHideError(
+    formPages,
+    formPagesError,
+    showMissingError,
+    'Please add amount of pages',
+  )
+})
+
+readStatusRadio.forEach((radio) => {
+  radio.addEventListener('change', (event) => {
+    isRadioSelected(
+      readStatusRadio,
+      readStatusError,
+      'Please select read status',
+    )
+  })
+})
+
+function isRadioSelected(radioName, selectedError, errorMessage) {
+  const radios = radioName
+  const selected = [...radios].some((radio) => radio.checked)
+  if (selected) {
+    selectedError.textContent = ''
+    selectedError.className = 'error'
+    return true
+  } else {
+    selectedError.textContent = errorMessage
+    selectedError.className = 'error active'
+    return false
+  }
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault()
+
+  if (!formTitle.validity.valid) {
+    showMissingError(formTitle, formTitleError, 'Please enter a title')
+    return
+  }
+
+  if (!formAuthor.validity.valid) {
+    showMissingError(formAuthor, formAuthorError, 'Please enter an author')
+    return
+  }
+
+  if (!formPages.validity.valid) {
+    showMissingError(formPages, formPagesError, 'Please add amount of pages')
+    return
+  }
+
+  if (
+    isRadioSelected(
+      readStatusRadio,
+      readStatusError,
+      'Please select read status',
+    ) === false
+  ) {
+    return
+  }
+
   const elements = form
   const bookToAdd = new Book(
     elements.title.value,

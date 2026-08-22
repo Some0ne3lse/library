@@ -24,25 +24,43 @@
       <button type="button" id="openForm">New Book</button>
     </div>
     <dialog id="modal">
-      <form id="bookForm">
+      <form id="bookForm" novalidate>
         <div>
           <label for="title">Enter book title</label>
           <p>
-            <input type="text" name="title" id="title" required />
+            <input
+              class="normal-input"
+              type="text"
+              name="title"
+              id="title"
+              required
+            />
             <span class="error"></span>
           </p>
         </div>
         <div>
           <label for="author">Enter author</label>
           <p>
-            <input type="text" name="author" id="author" required />
+            <input
+              class="normal-input"
+              type="text"
+              name="author"
+              id="author"
+              required
+            />
             <span class="error"></span>
           </p>
         </div>
         <div>
           <label for="pages">Amount of pages</label>
           <p>
-            <input type="number" name="pages" id="pages" required />
+            <input
+              class="normal-input"
+              type="number"
+              name="pages"
+              id="pages"
+              required
+            />
             <span class="error"></span>
           </p>
         </div>
@@ -67,7 +85,7 @@
               required
             />
           </p>
-          <span class="error"></span>
+          <span class="error" id="readRadio"></span>
         </fieldset>
         <button type="submit">Add Book</button>
         <button type="button" id="closeForm">Close</button>
