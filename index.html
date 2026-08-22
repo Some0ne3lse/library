@@ -25,37 +25,50 @@
     </div>
     <dialog id="modal">
       <form id="bookForm">
-        <p>
+        <div>
           <label for="title">Enter book title</label>
-          <input type="text" name="title" id="title" required />
-        </p>
-        <p>
+          <p>
+            <input type="text" name="title" id="title" required />
+            <span class="error"></span>
+          </p>
+        </div>
+        <div>
           <label for="author">Enter author</label>
-          <input type="text" name="author" id="author" required />
-        </p>
-        <p>
+          <p>
+            <input type="text" name="author" id="author" required />
+            <span class="error"></span>
+          </p>
+        </div>
+        <div>
           <label for="pages">Amount of pages</label>
-          <input type="number" name="pages" id="pages" required />
-        </p>
-        <p>
-          <label for="true">Read</label>
-          <input
-            type="radio"
-            name="readStatus"
-            id="true"
-            value="true"
-            required
-          />
-          <br />
-          <label for="false">Not read</label>
-          <input
-            type="radio"
-            name="readStatus"
-            id="false"
-            value="false"
-            required
-          />
-        </p>
+          <p>
+            <input type="number" name="pages" id="pages" required />
+            <span class="error"></span>
+          </p>
+        </div>
+        <fieldset>
+          <legend>Has it been read?</legend>
+          <p>
+            <label for="true">Read</label>
+            <input
+              type="radio"
+              name="readStatus"
+              id="true"
+              value="true"
+              required
+            />
+            <br />
+            <label for="false">Not read</label>
+            <input
+              type="radio"
+              name="readStatus"
+              id="false"
+              value="false"
+              required
+            />
+          </p>
+          <span class="error"></span>
+        </fieldset>
         <button type="submit">Add Book</button>
         <button type="button" id="closeForm">Close</button>
       </form>
